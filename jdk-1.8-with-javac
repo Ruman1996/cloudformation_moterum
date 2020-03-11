@@ -1,0 +1,15 @@
+Resources:
+  MyInstance:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      AvailabilityZone: us-east-2a
+      ImageId: ami-0e38b48473ea57778
+      InstanceType: t2.micro
+      KeyName: ohio-ruman-aws
+      UserData:
+        Fn::Base64: |
+           #!/bin/bash
+           yum update -y
+           yum install java-1.8.0-openjdk -y
+           yum install java-devel -y
+           yum install httpd -y
